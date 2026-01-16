@@ -6,8 +6,7 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 
 // connect mongodb with mongoose
-const dbUrl = 'mongodb+srv://loginSystem:Sujitr%4001993@cluster0.mofvcxz.mongodb.net/operation_ratio?appName=Cluster0'
-mongoose.connect(dbUrl)
+mongoose.connect(process.env.dbUrl)
 
 
 //controller
