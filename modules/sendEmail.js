@@ -1,23 +1,16 @@
-const nodemailer = require('nodemailer')
+const { Resend } = require('resend')
 
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
-  },
-  logger: true,
-  debug: true
-})
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 /**
  * ส่งอีเมล reset password
  * @param {string} toEmail
  * @param {string} resetUrl
  */
+
 const sendResetPasswordEmail = async (toEmail, resetUrl) => {
-  await transporter.sendMail({
-    from: `"Support" <${process.env.EMAIL_USER}>`,
+   return resend.emails.send({
+    from: 'Support <onboarding@resend.dev>',
     to: toEmail,
     subject: 'Reset your password',
     html: `
