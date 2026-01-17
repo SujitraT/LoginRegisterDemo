@@ -32,7 +32,7 @@ module.exports = async (req,res) =>{
             return res.redirect('/forgot')
         }
         
-        req.flash('error',['The system has malfunctioned. Please try again.'])
+        req.flash('error',[err])
         return res.redirect('/forgot')
 
     }
