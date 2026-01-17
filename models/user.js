@@ -31,7 +31,13 @@ const UserSchema = new Schema({
             "Password must contain at least 8 characters, including lowercase, uppercase, number, and special character below at 8 character"
         ],
         trim:true
-    }
+    },
+    resetPasswordToken: {
+        type:String
+    },
+    resetPasswordExpire:{
+        type:Date
+    } 
 })
 
 
